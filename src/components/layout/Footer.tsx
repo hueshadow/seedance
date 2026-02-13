@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { NAV_ITEMS, SITE_NAME, SOCIAL_LINKS } from '@/lib/constants';
+import { NewsletterSignup } from '@/components/NewsletterSignup';
 
 const FOOTER_LINKS = [
   { label: 'FAQ', href: '/faq' },
@@ -71,6 +72,10 @@ export function Footer() {
               ))}
             </ul>
           </div>
+        </div>
+
+        <div className="mt-8">
+          <NewsletterSignup />
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">

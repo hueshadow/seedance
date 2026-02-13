@@ -1,0 +1,294 @@
+---
+title: "Seedance API Tutorial: Generate AI Videos with Code"
+description: "A step-by-step guide to integrating Seedance into your application using fal.ai and Replicate APIs — with Python code examples, webhook handling, and best practices."
+date: "2026-02-25"
+category: "Tutorial"
+tags: ["seedance", "api", "tutorial", "developer", "fal-ai", "replicate"]
+---
+
+If you're building an application that needs AI-generated video — whether it's a content platform, marketing tool, or creative app — Seedance offers some of the best quality-to-cost ratio available through API. This tutorial walks you through integrating Seedance using both **fal.ai** and **Replicate**, the two main API providers.
+
+## Prerequisites
+
+Before you start, you'll need:
+
+- Python 3.8 or higher
+- An API key from [fal.ai](https://fal.ai) or [Replicate](https://replicate.com)
+- Basic familiarity with async Python (helpful but not required)
+
+## Available Models via API
+
+As of February 2026, the following Seedance models are available through third-party APIs:
+
+| Model | Provider | Type | Resolution |
+|-------|----------|------|------------|
+| Seedance 1.0 Pro | fal.ai | Text-to-Video | 480p |
+| Seedance 1.0 Pro | Replicate | Image-to-Video | 480p |
+| Seedance 1.5 Pro | fal.ai | Text-to-Video | 720p |
+| Seedance 1.5 Pro | fal.ai | Image-to-Video | 720p |
+
+**Note**: Seedance 2.0 is not yet available via API. For 2.0 access, use Jimeng or Dreamina directly. Check our [versions page](/versions) for the latest availability.
+
+## Method 1: fal.ai Integration
+
+fal.ai offers the broadest selection of Seedance models with both synchronous and asynchronous execution.
+
+### Installation
+
+```python
+pip install fal-client
+```
+
+### Set Your API Key
+
+```python
+import os
+os.environ["FAL_KEY"] = "your-fal-api-key"
+```
+
+Or export it in your shell:
+
+```bash
+export FAL_KEY="your-fal-api-key"
+```
+
+### Text-to-Video (Synchronous)
+
+The simplest approach — submit a prompt and wait for the result.
+
+```python
+import fal_client
+
+def generate_video(prompt, duration=5):
+    """Generate a video from a text prompt using Seedance 1.5 Pro."""
+    result = fal_client.subscribe(
+        "fal-ai/seedance-v1.5-pro",
+        arguments={
+            "prompt": prompt,
+            "duration": duration,
+            "seed": 42,  # Optional: set for reproducible results
+        },
+    )
+    return result["video"]["url"]
+
+video_url = generate_video(
+    "A ceramic coffee mug on a wooden table, steam rising gently, "
+    "morning sunlight streaming through a window, warm cozy atmosphere"
+)
+print(f"Video ready: {video_url}")
+```
+
+### Image-to-Video
+
+Turn a static product image into a dynamic video clip.
+
+```python
+import fal_client
+
+def image_to_video(image_url, prompt, duration=5):
+    """Animate a static image using Seedance 1.5 Pro."""
+    result = fal_client.subscribe(
+        "fal-ai/seedance-v1.5-pro/image-to-video",
+        arguments={
+            "prompt": prompt,
+            "image_url": image_url,
+            "duration": duration,
+        },
+    )
+    return result["video"]["url"]
+
+video_url = image_to_video(
+    image_url="https://example.com/product-photo.jpg",
+    prompt="The product slowly rotates, soft studio lighting, "
+           "clean white background, commercial photography style",
+)
+print(f"Video ready: {video_url}")
+```
+
+### Async with Webhooks (Production Use)
+
+For production applications, you don't want to hold a connection open while the video generates. Use the queue-based approach with webhooks instead.
+
+```python
+import fal_client
+
+def submit_video_job(prompt, webhook_url):
+    """Submit a video generation job and receive results via webhook."""
+    handler = fal_client.submit(
+        "fal-ai/seedance-v1.5-pro",
+        arguments={
+            "prompt": prompt,
+            "duration": 5,
+        },
+        webhook_url=webhook_url,
+    )
+    return handler.request_id
+
+# Submit the job
+request_id = submit_video_job(
+    prompt="A sneaker floating and rotating against a gradient background",
+    webhook_url="https://your-app.com/api/webhooks/fal",
+)
+print(f"Job submitted: {request_id}")
+
+# Check status without blocking
+status = fal_client.status("fal-ai/seedance-v1.5-pro", request_id)
+print(f"Status: {status}")
+```
+
+Your webhook endpoint will receive a POST request with the completed video URL when generation finishes.
+
+## Method 2: Replicate Integration
+
+Replicate offers a clean API with built-in webhook support and a generous free tier for testing.
+
+### Installation
+
+```python
+pip install replicate
+```
+
+### Set Your API Token
+
+```python
+import os
+os.environ["REPLICATE_API_TOKEN"] = "your-replicate-token"
+```
+
+### Text-to-Video
+
+```python
+import replicate
+
+def generate_video(prompt):
+    """Generate a video using Seedance on Replicate."""
+    output = replicate.run(
+        "bytedance/seedance-v1-pro-t2v-480p",
+        input={
+            "prompt": prompt,
+            "num_frames": 120,  # ~5 seconds at 24fps
+        },
+    )
+    return output
+
+video_url = generate_video(
+    "A luxury watch on a dark marble surface, dramatic side lighting, "
+    "the second hand ticks smoothly, cinematic product commercial"
+)
+print(f"Video ready: {video_url}")
+```
+
+### Image-to-Video
+
+```python
+import replicate
+
+def image_to_video(image_path, prompt):
+    """Animate an image using Seedance on Replicate."""
+    output = replicate.run(
+        "bytedance/seedance-v1-pro-i2v-480p",
+        input={
+            "prompt": prompt,
+            "image": open(image_path, "rb"),
+        },
+    )
+    return output
+
+video_url = image_to_video(
+    image_path="./product-hero.jpg",
+    prompt="Gentle camera push-in, the product catches the light, "
+           "subtle ambient movement in the background",
+)
+print(f"Video ready: {video_url}")
+```
+
+### Async with Predictions API
+
+For production workloads, use Replicate's predictions API to avoid blocking.
+
+```python
+import replicate
+
+def submit_async_job(prompt, webhook_url):
+    """Submit an async video generation job on Replicate."""
+    model = replicate.models.get("bytedance/seedance-v1-pro-t2v-480p")
+    version = model.latest_version
+
+    prediction = replicate.predictions.create(
+        version=version,
+        input={
+            "prompt": prompt,
+            "num_frames": 120,
+        },
+        webhook=webhook_url,
+        webhook_events_filter=["completed"],
+    )
+    return prediction.id
+
+prediction_id = submit_async_job(
+    prompt="A pair of running shoes on a track, dynamic angle",
+    webhook_url="https://your-app.com/api/webhooks/replicate",
+)
+print(f"Prediction submitted: {prediction_id}")
+```
+
+## Error Handling and Best Practices
+
+Wrap your API calls with proper error handling for production use.
+
+```python
+import fal_client
+import time
+
+def generate_with_retry(prompt, max_retries=3):
+    """Generate a video with retry logic and error handling."""
+    for attempt in range(max_retries):
+        try:
+            result = fal_client.subscribe(
+                "fal-ai/seedance-v1.5-pro",
+                arguments={
+                    "prompt": prompt,
+                    "duration": 5,
+                },
+                with_logs=True,
+            )
+            return result["video"]["url"]
+
+        except fal_client.FalServerError as e:
+            if "rate_limit" in str(e).lower():
+                wait_time = 2 ** attempt * 10
+                print(f"Rate limited. Waiting {wait_time}s...")
+                time.sleep(wait_time)
+            else:
+                raise
+
+    raise Exception("Max retries exceeded")
+```
+
+### Key tips for production:
+
+- **Set a seed** for reproducible results during testing. Remove it in production for variety.
+- **Use webhooks** instead of synchronous calls. Video generation takes 30-120 seconds depending on the model and duration.
+- **Cache results** by prompt hash. If the same prompt is submitted twice, return the cached video instead of regenerating.
+- **Implement rate limiting** on your end. Both fal.ai and Replicate have rate limits that vary by plan.
+- **Store videos** in your own storage (S3, GCS, etc.) after generation. API provider URLs may expire.
+
+## Cost Estimation
+
+Understanding costs helps you budget for production usage.
+
+| Provider | Model | Approximate Cost |
+|----------|-------|-----------------|
+| fal.ai | Seedance 1.5 Pro (5s) | ~$0.08-0.12 per video |
+| fal.ai | Seedance 1.5 Pro (10s) | ~$0.15-0.20 per video |
+| Replicate | Seedance 1.0 Pro (5s) | ~$0.10-0.15 per video |
+
+Costs vary based on resolution, duration, and current provider pricing. Check each provider's pricing page for the latest rates, and see our [pricing overview](/pricing) for a comparison across all access methods.
+
+## Next Steps
+
+- Explore our [API reference page](/api) for endpoint details and parameter documentation
+- Compare all [Seedance versions](/versions) to choose the right model for your use case
+- Check [pricing](/pricing) across all platforms and API providers
+
+The API ecosystem for Seedance is still maturing. As Seedance 2.0 becomes available through fal.ai and Replicate, expect higher resolution output and audio generation capabilities to become programmable as well.
