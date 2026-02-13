@@ -1,0 +1,27 @@
+project:
+  name: seedance.free
+  description: The Complete Seedance Resource for Creators & Developers
+  version: "1.0"
+
+tech_stack:
+  framework: Next.js 15 (App Router)
+  styling: Tailwind CSS v4
+  content: MDX
+  deployment: Vercel
+  language: TypeScript
+  package_manager: pnpm
+
+domains:
+  - infrastructure
+  - homepage
+  - guide
+  - faq
+  - versions
+  - pricing
+  - prompts
+  - tools
+  - api
+  - register
+  - blog
+  - seo
+  - monetization
