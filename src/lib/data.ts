@@ -1,3 +1,71 @@
+export interface PlatformPricing {
+  platform: string;
+  region: string;
+  plans: { name: string; price: string; note?: string }[];
+  freeCredits: string | null;
+  seedanceVersions: string;
+  requiresChinaPhone: boolean;
+}
+
+export const PLATFORM_PRICING: PlatformPricing[] = [
+  {
+    platform: 'Jimeng (即梦)',
+    region: 'China',
+    plans: [
+      { name: 'Basic', price: '¥69/mo (~$9.50)' },
+      { name: 'Pro', price: '¥199/mo (~$27)' },
+      { name: 'Enterprise', price: '¥499/mo (~$68)' },
+    ],
+    freeCredits: '10 free generations/day for new users',
+    seedanceVersions: '1.0, 1.5, 2.0',
+    requiresChinaPhone: true,
+  },
+  {
+    platform: 'Dreamina',
+    region: 'International',
+    plans: [
+      { name: 'Starter', price: '$18/mo' },
+      { name: 'Pro', price: '$42/mo' },
+      { name: 'Premium', price: '$84/mo' },
+    ],
+    freeCredits: '5 free generations for new accounts',
+    seedanceVersions: '1.5, 2.0',
+    requiresChinaPhone: false,
+  },
+  {
+    platform: 'Doubao (豆包)',
+    region: 'China',
+    plans: [{ name: 'Free Tier', price: 'Free' }],
+    freeCredits: '10 free generations/day',
+    seedanceVersions: '1.0',
+    requiresChinaPhone: true,
+  },
+  {
+    platform: 'fal.ai',
+    region: 'Global (API)',
+    plans: [{ name: 'Pay-as-you-go', price: '~$0.01–0.05/sec', note: 'Varies by model' }],
+    freeCredits: '$10 free credits on signup',
+    seedanceVersions: '1.0 (all variants), 1.5 Pro',
+    requiresChinaPhone: false,
+  },
+  {
+    platform: 'Replicate',
+    region: 'Global (API)',
+    plans: [{ name: 'Pay-as-you-go', price: '~$0.01–0.05/sec', note: 'Varies by model' }],
+    freeCredits: 'Free tier with limited runs',
+    seedanceVersions: '1.0 Pro, 1.5 Pro',
+    requiresChinaPhone: false,
+  },
+];
+
+export const COMPETITOR_PRICING = [
+  { model: 'Seedance 2.0', price: 'From $18/mo', freeOption: true, highlight: true },
+  { model: 'Sora 2', price: '$200/mo (ChatGPT Pro)', freeOption: false, highlight: false },
+  { model: 'Veo 3.1', price: '$19.99/mo (Google AI Pro)', freeOption: true, highlight: false },
+  { model: 'Kling 2.0', price: 'From $9.99/mo', freeOption: true, highlight: false },
+  { model: 'Hailuo AI', price: 'From $9.99/mo', freeOption: true, highlight: false },
+];
+
 export const COMPARISON_DATA = [
   {
     model: 'Seedance 2.0',
@@ -143,6 +211,126 @@ export const FAQ_DATA: FaqItem[] = [
     answer:
       'For Jimeng (the primary platform), a Chinese phone number is required for registration. However, there are workarounds: you can use virtual phone number services, access Seedance through Dreamina (the international version), or use API providers like fal.ai and Replicate which don\'t require Chinese verification. Our <a href="/register">registration guide</a> walks through each method step by step.',
     category: 'usage',
+  },
+];
+
+export interface SeedanceVersion {
+  id: string;
+  name: string;
+  subtitle: string;
+  released: string;
+  resolution: string;
+  maxDuration: string;
+  speed: string;
+  audio: boolean;
+  referenceInput: string;
+  platforms: string[];
+  priceNote: string;
+  highlights: string[];
+  bestFor: string;
+  latest?: boolean;
+}
+
+export const SEEDANCE_VERSIONS: SeedanceVersion[] = [
+  {
+    id: '2.0',
+    name: 'Seedance 2.0',
+    subtitle: 'Latest Flagship',
+    released: 'Jan 2026',
+    resolution: '2K (2048×1080)',
+    maxDuration: '15s',
+    speed: '~60s',
+    audio: true,
+    referenceInput: 'Image + Video',
+    platforms: ['Jimeng', 'Dreamina'],
+    priceNote: 'From $18/mo (Dreamina)',
+    highlights: [
+      '2K resolution output',
+      'Built-in audio generation',
+      'Image and video reference input',
+      'Improved motion consistency',
+    ],
+    bestFor: 'Professional creators needing the highest quality with audio',
+    latest: true,
+  },
+  {
+    id: '1.5-pro',
+    name: 'Seedance 1.5 Pro',
+    subtitle: 'Enhanced Professional',
+    released: 'Oct 2025',
+    resolution: '1080p',
+    maxDuration: '10s',
+    speed: '~45s',
+    audio: false,
+    referenceInput: 'Image + Video',
+    platforms: ['Jimeng', 'Dreamina', 'fal.ai', 'Replicate'],
+    priceNote: 'API: ~$0.05/sec',
+    highlights: [
+      'Better motion quality than 1.0',
+      'Wider API availability',
+      'Image-to-video and video-to-video',
+    ],
+    bestFor: 'Developers who need API access with good quality',
+  },
+  {
+    id: '1.0-pro',
+    name: 'Seedance 1.0 Pro',
+    subtitle: 'Professional',
+    released: 'Jul 2025',
+    resolution: '1080p',
+    maxDuration: '10s',
+    speed: '~40s',
+    audio: false,
+    referenceInput: 'Image',
+    platforms: ['Jimeng', 'fal.ai', 'Replicate'],
+    priceNote: 'API: ~$0.04/sec',
+    highlights: ['High-quality generation', 'Stable motion', 'Wide API support'],
+    bestFor: 'Quality-focused projects with API integration',
+  },
+  {
+    id: '1.0-pro-fast',
+    name: 'Seedance 1.0 Pro Fast',
+    subtitle: 'Fast Professional',
+    released: 'Jul 2025',
+    resolution: '720p',
+    maxDuration: '5s',
+    speed: '~15s',
+    audio: false,
+    referenceInput: 'Image',
+    platforms: ['fal.ai', 'Replicate'],
+    priceNote: 'API: ~$0.02/sec',
+    highlights: ['4x faster than Pro', 'Good for rapid prototyping', 'Lower cost per video'],
+    bestFor: 'Quick iterations and prototyping',
+  },
+  {
+    id: '1.0-mini',
+    name: 'Seedance 1.0 Mini',
+    subtitle: 'Compact',
+    released: 'Jul 2025',
+    resolution: '480p',
+    maxDuration: '5s',
+    speed: '~10s',
+    audio: false,
+    referenceInput: 'Image',
+    platforms: ['fal.ai', 'Replicate'],
+    priceNote: 'API: ~$0.01/sec',
+    highlights: ['Fastest generation', 'Lowest cost', 'Good for thumbnails and previews'],
+    bestFor: 'High-volume, low-cost generation',
+  },
+  {
+    id: '1.0-lite',
+    name: 'Seedance 1.0 Lite',
+    subtitle: 'Entry Level',
+    released: 'Jul 2025',
+    resolution: '480p',
+    maxDuration: '4s',
+    speed: '~8s',
+    audio: false,
+    referenceInput: 'Text only',
+    platforms: ['fal.ai'],
+    priceNote: 'API: ~$0.008/sec',
+    highlights: ['Text-to-video only', 'Ultra-low cost', 'Fastest option'],
+    bestFor: 'Testing and experimentation',
   },
 ];
 

@@ -1,0 +1,129 @@
+---
+title: "How to Access Seedance 2.0 Outside China in 2026"
+description: "Three proven methods to use Seedance 2.0 from anywhere in the world — virtual phone numbers, international platforms, and API access."
+date: "2026-02-12"
+category: "Tutorial"
+tags: ["seedance", "tutorial", "registration", "access"]
+---
+
+Seedance 2.0 is one of the most impressive AI video generators available today, but there's a catch: the best platform to use it (Jimeng) requires a Chinese phone number. If you're outside China, that can feel like a dealbreaker.
+
+It's not. Here are three methods that work in 2026.
+
+## Method 1: Dreamina (Easiest)
+
+**Dreamina** is ByteDance's international platform — think of it as the global version of Jimeng. It supports Seedance 1.5 Pro and 2.0.
+
+### How to sign up:
+
+1. Go to [dreamina.com](https://dreamina.com)
+2. Click "Sign Up" and use your email or Google account
+3. Verify your email
+4. Navigate to the video generation section
+5. Select Seedance 2.0 as your model
+6. Start with your free credits
+
+**Pros**: No Chinese phone number needed, simple signup, access to Seedance 2.0.
+
+**Cons**: Fewer free credits than Jimeng, paid plans start at $18/month.
+
+This is the recommended method for most international users.
+
+## Method 2: Virtual Phone Number (Full Access)
+
+If you want the full Jimeng experience with maximum free credits, you can use a virtual Chinese phone number service.
+
+### Recommended services:
+
+- **SMS-Activate** — Most reliable, ~$0.50-1.00 per number
+- **5SIM** — Good alternative, similar pricing
+- **MobileSMS.io** — Budget option
+
+### Steps:
+
+1. Create an account on SMS-Activate (or your preferred service)
+2. Add funds ($2-5 is enough)
+3. Search for a Chinese (+86) number for "Jimeng" or "ByteDance"
+4. Go to [jimeng.jianying.com](https://jimeng.jianying.com)
+5. Click sign up and enter the virtual number
+6. Request the verification code
+7. Check the virtual number service for the SMS code
+8. Enter the code and complete registration
+
+### Tips for success:
+
+- If a number gets rejected, try another one — some numbers are recycled
+- Complete the registration quickly (codes expire in 5 minutes)
+- Don't use a VPN during registration if possible
+- Save your login credentials — you won't need the phone number again for daily use
+
+## Method 3: API Access (For Developers)
+
+If you're comfortable with code, API platforms give you direct access to Seedance models without any phone verification.
+
+### fal.ai
+
+```bash
+# Install the client
+pip install fal-client
+
+# Set your API key
+export FAL_KEY="your-api-key"
+```
+
+```python
+import fal_client
+
+result = fal_client.subscribe(
+    "fal-ai/seedance-v1-pro",
+    arguments={
+        "prompt": "A golden retriever running through a field of sunflowers",
+        "duration": 5
+    }
+)
+print(result["video"]["url"])
+```
+
+### Replicate
+
+```bash
+# Install the client
+pip install replicate
+
+# Set your API token
+export REPLICATE_API_TOKEN="your-token"
+```
+
+```python
+import replicate
+
+output = replicate.run(
+    "bytedance/seedance-v1-pro-i2v-480p",
+    input={
+        "prompt": "A golden retriever running through a field of sunflowers"
+    }
+)
+print(output)
+```
+
+**Note**: As of February 2026, Seedance 2.0 is not yet available via third-party APIs. fal.ai and Replicate offer Seedance 1.0 and 1.5 variants. For 2.0, use Method 1 or 2.
+
+## Which Method Should You Choose?
+
+| Method | Best For | Seedance 2.0 | Difficulty |
+|--------|----------|:------------:|:----------:|
+| Dreamina | Most users | Yes | Easy |
+| Virtual Number | Power users wanting max free credits | Yes | Medium |
+| API (fal.ai/Replicate) | Developers | No (1.0/1.5 only) | Technical |
+
+For most people, **Dreamina is the way to go**. It's the simplest path to Seedance 2.0 with no workarounds needed.
+
+If you want the full Chinese platform experience with more free credits, the virtual phone number method works reliably — just budget $1-2 for the number.
+
+For developers building applications, the API route through fal.ai or Replicate is the most flexible, though you'll be limited to Seedance 1.0 and 1.5 until 2.0 becomes available via API.
+
+## Next Steps
+
+- Read our [complete Seedance guide](/guide) for prompt tips and best practices
+- Compare all [Seedance versions](/versions) to pick the right model
+- Check [pricing details](/pricing) for all platforms
