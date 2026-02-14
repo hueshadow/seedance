@@ -39,7 +39,7 @@ export default function CalculatorClient() {
             max={100}
             value={videoCount}
             onChange={(e) => setVideoCount(Number(e.target.value))}
-            className="mt-2 w-full accent-primary-600"
+            className="mt-2 w-full accent-accent-600"
           />
           <div className="mt-1 text-right text-sm text-muted-foreground">{videoCount} videos</div>
         </div>
@@ -52,7 +52,7 @@ export default function CalculatorClient() {
             max={15}
             value={duration}
             onChange={(e) => setDuration(Number(e.target.value))}
-            className="mt-2 w-full accent-primary-600"
+            className="mt-2 w-full accent-accent-600"
           />
           <div className="mt-1 text-right text-sm text-muted-foreground">{duration} seconds</div>
         </div>
@@ -66,7 +66,7 @@ export default function CalculatorClient() {
                 onClick={() => setResolution(r)}
                 className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                   resolution === r
-                    ? 'bg-primary-600 text-white'
+                    ? 'bg-accent-600 text-white'
                     : 'border border-border hover:bg-muted'
                 }`}
               >
@@ -85,7 +85,7 @@ export default function CalculatorClient() {
                 onClick={() => setPlatformId(p.id)}
                 className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                   platformId === p.id
-                    ? 'bg-primary-600 text-white'
+                    ? 'bg-accent-600 text-white'
                     : 'border border-border hover:bg-muted'
                 }`}
               >
@@ -98,9 +98,9 @@ export default function CalculatorClient() {
 
       {/* Results */}
       <div className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-        <div className="rounded-xl border border-primary-200 bg-primary-50/50 p-6 dark:border-primary-800 dark:bg-primary-900/10">
+        <div className="rounded-xl border border-accent-200 bg-accent-50/50 p-6 dark:border-accent-800 dark:bg-accent-900/10">
           <p className="text-sm text-muted-foreground">Estimated Cost</p>
-          <p className="mt-1 text-3xl font-bold text-primary-600 dark:text-primary-400">
+          <p className="mt-1 text-3xl font-bold text-accent-600 dark:text-accent-400">
             ${monthlyCost.toFixed(2)}
           </p>
           <p className="mt-1 text-xs text-muted-foreground">
@@ -120,7 +120,7 @@ export default function CalculatorClient() {
                   <div className="text-right">
                     <span>${compCost.toFixed(2)}</span>
                     {savings > 0 && (
-                      <span className="ml-2 text-xs text-green-600 dark:text-green-400">
+                      <span className="ml-2 text-xs text-emerald-600 dark:text-emerald-400">
                         Save ${savings.toFixed(2)}
                       </span>
                     )}

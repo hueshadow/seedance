@@ -71,7 +71,7 @@ export default function PricingPage() {
               >
                 <div className="flex items-center gap-2">
                   <svg
-                    className="h-5 w-5 text-green-600 dark:text-green-400"
+                    className="h-5 w-5 text-emerald-600 dark:text-emerald-400"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -128,7 +128,7 @@ export default function PricingPage() {
                       {p.requiresChinaPhone ? (
                         <span className="text-amber-600 dark:text-amber-400">Required</span>
                       ) : (
-                        <span className="text-green-600 dark:text-green-400">Not needed</span>
+                        <span className="text-emerald-600 dark:text-emerald-400">Not needed</span>
                       )}
                     </td>
                   </tr>
@@ -159,12 +159,12 @@ export default function PricingPage() {
                 {COMPETITOR_PRICING.map((c) => (
                   <tr
                     key={c.model}
-                    className={`border-b border-border ${c.highlight ? 'bg-primary-50/50 dark:bg-primary-900/10' : ''}`}
+                    className={`border-b border-border ${c.highlight ? 'bg-accent-50/50 dark:bg-accent-900/10' : ''}`}
                   >
                     <td className="py-3.5 pr-4 font-medium">
                       {c.model}
                       {c.highlight && (
-                        <span className="ml-2 rounded bg-primary-100 px-1.5 py-0.5 text-xs font-medium text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+                        <span className="ml-2 rounded bg-accent-100 px-1.5 py-0.5 text-xs font-medium text-accent-700 dark:bg-accent-900/40 dark:text-accent-300">
                           Best Value
                         </span>
                       )}
@@ -172,7 +172,7 @@ export default function PricingPage() {
                     <td className="py-3.5 pr-4">{c.price}</td>
                     <td className="py-3.5">
                       {c.freeOption ? (
-                        <span className="text-green-600 dark:text-green-400">Yes</span>
+                        <span className="text-emerald-600 dark:text-emerald-400">Yes</span>
                       ) : (
                         <span className="text-muted-foreground">No</span>
                       )}
@@ -193,7 +193,7 @@ export default function PricingPage() {
           <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href="/register"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-primary-700"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-700"
             >
               Registration Guide
             </Link>

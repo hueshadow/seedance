@@ -38,7 +38,7 @@ export function VersionDecisionHelper({ versions }: { versions: SeedanceVersion[
             onClick={() => setNeed(need === key ? null : key)}
             className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
               need === key
-                ? 'bg-primary-600 text-white'
+                ? 'bg-accent-600 text-white'
                 : 'border border-border hover:bg-muted'
             }`}
           >
@@ -48,11 +48,11 @@ export function VersionDecisionHelper({ versions }: { versions: SeedanceVersion[
       </div>
 
       {recommendation && (
-        <div className="mt-4 rounded-lg bg-primary-50 p-4 dark:bg-primary-900/20">
-          <p className="text-sm font-medium text-primary-700 dark:text-primary-300">
+        <div className="mt-4 rounded-lg bg-accent-50 p-4 dark:bg-accent-900/20">
+          <p className="text-sm font-medium text-accent-700 dark:text-accent-300">
             We recommend: {recommendation.name}
           </p>
-          <p className="mt-1 text-sm text-primary-600/80 dark:text-primary-400/80">
+          <p className="mt-1 text-sm text-accent-600/80 dark:text-accent-400/80">
             {recommendation.bestFor}
           </p>
         </div>

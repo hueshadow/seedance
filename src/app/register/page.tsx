@@ -172,7 +172,7 @@ export default function RegisterPage() {
                     {p.phone ? (
                       <span className="text-amber-600 dark:text-amber-400">Required</span>
                     ) : (
-                      <span className="text-green-600 dark:text-green-400">Not needed</span>
+                      <span className="text-emerald-600 dark:text-emerald-400">Not needed</span>
                     )}
                   </td>
                   <td className="py-3 pr-4">{p.difficulty}</td>
@@ -211,7 +211,7 @@ export default function RegisterPage() {
               <ol className="mt-4 space-y-2">
                 {method.steps.map((step, i) => (
                   <li key={i} className="flex gap-3 text-sm">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-medium text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-100 text-xs font-medium text-accent-700 dark:bg-accent-900/40 dark:text-accent-300">
                       {i + 1}
                     </span>
                     <span className="pt-0.5">{step}</span>
@@ -222,7 +222,7 @@ export default function RegisterPage() {
               {/* Pros/Cons */}
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <div>
-                  <p className="text-xs font-medium text-green-600 dark:text-green-400">Pros</p>
+                  <p className="text-xs font-medium text-emerald-600 dark:text-emerald-400">Pros</p>
                   <ul className="mt-1 space-y-1">
                     {method.pros.map((pro, i) => (
                       <li key={i} className="flex items-start gap-1.5 text-sm text-muted-foreground">
@@ -276,7 +276,7 @@ export default function RegisterPage() {
         <div className="mt-12 text-center">
           <p className="text-muted-foreground">
             Ready to start? Check our{' '}
-            <Link href="/guide" className="font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400">
+            <Link href="/guide" className="font-medium text-accent-600 hover:text-accent-700 dark:text-accent-400">
               complete guide
             </Link>{' '}
             for prompt tips and best practices.

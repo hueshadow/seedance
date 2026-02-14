@@ -59,11 +59,11 @@ export default function ApiGuidePage() {
         <div className="mt-12 rounded-xl border border-border bg-muted/30 p-6 text-center">
           <p className="text-sm text-muted-foreground">
             Not a developer?{' '}
-            <Link href="/guide" className="font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400">
+            <Link href="/guide" className="font-medium text-accent-600 hover:text-accent-700 dark:text-accent-400">
               Use Seedance through the web interface
             </Link>{' '}
             or check our{' '}
-            <Link href="/register" className="font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400">
+            <Link href="/register" className="font-medium text-accent-600 hover:text-accent-700 dark:text-accent-400">
               registration guide
             </Link>
             .

@@ -40,7 +40,7 @@ export default function BlogPage() {
             {posts.map((post) => (
               <article
                 key={post.slug}
-                className="rounded-xl border border-border bg-card p-6 transition-all hover:border-primary-200 hover:shadow-sm dark:hover:border-primary-800"
+                className="rounded-xl border border-border bg-card p-6 transition-all hover:border-accent-200 hover:shadow-sm dark:hover:border-accent-800"
               >
                 <div className="flex items-center gap-3 text-xs text-muted-foreground">
                   <time dateTime={post.date}>{post.date}</time>
@@ -52,7 +52,7 @@ export default function BlogPage() {
                 <h2 className="mt-2 text-lg font-semibold">
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="hover:text-primary-600 dark:hover:text-primary-400"
+                    className="hover:text-accent-600 dark:hover:text-accent-400"
                   >
                     {post.title}
                   </Link>

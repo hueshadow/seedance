@@ -108,7 +108,7 @@ export default async function BlogPostPage({
                   <Link
                     key={r.slug}
                     href={`/blog/${r.slug}`}
-                    className="rounded-lg border border-border p-4 transition-colors hover:border-primary-200 dark:hover:border-primary-800"
+                    className="rounded-lg border border-border p-4 transition-colors hover:border-accent-200 dark:hover:border-accent-800"
                   >
                     <p className="text-xs text-muted-foreground">{r.date}</p>
                     <p className="mt-1 text-sm font-medium">{r.title}</p>

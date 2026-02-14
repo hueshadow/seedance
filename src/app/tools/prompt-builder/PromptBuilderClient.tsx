@@ -18,7 +18,7 @@ function CopyButton({ text }: { text: string }) {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       }}
-      className="rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-700"
+      className="rounded-lg bg-accent-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-700"
     >
       {copied ? 'Copied!' : 'Copy Prompt'}
     </button>
@@ -65,7 +65,7 @@ export default function PromptBuilderClient() {
             placeholder="e.g., a red sports car, a tabby cat..."
             value={customSubject}
             onChange={(e) => setCustomSubject(e.target.value)}
-            className="mt-1 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary-400"
+            className="mt-1 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-accent-400"
           />
         </div>
         <Field label="Action" options={ACTIONS} value={action} onChange={setAction} />
@@ -83,7 +83,7 @@ export default function PromptBuilderClient() {
                 onClick={() => setRefType(t)}
                 className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
                   refType === t
-                    ? 'bg-primary-600 text-white'
+                    ? 'bg-accent-600 text-white'
                     : 'border border-border hover:bg-muted'
                 }`}
               >
@@ -140,7 +140,7 @@ function Field({
             onClick={() => onChange(value === opt ? '' : opt)}
             className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
               value === opt
-                ? 'bg-primary-600 text-white'
+                ? 'bg-accent-600 text-white'
                 : 'bg-muted text-muted-foreground hover:bg-muted/80'
             }`}
           >

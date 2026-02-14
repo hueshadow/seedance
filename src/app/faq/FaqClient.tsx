@@ -41,7 +41,7 @@ export default function FaqClient({ items }: { items: FaqItem[] }) {
           placeholder="Search questions..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full rounded-lg border border-border bg-card py-2.5 pl-10 pr-4 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary-400 dark:focus:border-primary-600"
+          className="w-full rounded-lg border border-border bg-card py-2.5 pl-10 pr-4 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-accent-400 dark:focus:border-accent-600"
         />
       </div>
 
@@ -51,7 +51,7 @@ export default function FaqClient({ items }: { items: FaqItem[] }) {
           onClick={() => setActiveCategory('all')}
           className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
             activeCategory === 'all'
-              ? 'bg-primary-600 text-white'
+              ? 'bg-accent-600 text-white'
               : 'bg-muted text-muted-foreground hover:bg-muted/80'
           }`}
         >
@@ -63,7 +63,7 @@ export default function FaqClient({ items }: { items: FaqItem[] }) {
             onClick={() => setActiveCategory(key)}
             className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
               activeCategory === key
-                ? 'bg-primary-600 text-white'
+                ? 'bg-accent-600 text-white'
                 : 'bg-muted text-muted-foreground hover:bg-muted/80'
             }`}
           >
@@ -82,7 +82,7 @@ export default function FaqClient({ items }: { items: FaqItem[] }) {
           filtered.map((item, i) => (
             <details
               key={i}
-              className="group rounded-lg border border-border bg-card transition-colors open:border-primary-200 dark:open:border-primary-800"
+              className="group rounded-lg border border-border bg-card transition-colors open:border-accent-200 dark:open:border-accent-800"
             >
               <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-medium select-none [&::-webkit-details-marker]:hidden">
                 <span>{item.question}</span>
@@ -100,7 +100,7 @@ export default function FaqClient({ items }: { items: FaqItem[] }) {
                 </svg>
               </summary>
               <div
-                className="px-5 pb-4 text-sm leading-relaxed text-muted-foreground [&_a]:font-medium [&_a]:text-primary-600 [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-primary-700 dark:[&_a]:text-primary-400"
+                className="px-5 pb-4 text-sm leading-relaxed text-muted-foreground [&_a]:font-medium [&_a]:text-accent-600 [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-accent-700 dark:[&_a]:text-accent-400"
                 dangerouslySetInnerHTML={{ __html: item.answer }}
               />
             </details>

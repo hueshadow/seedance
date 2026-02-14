@@ -29,7 +29,7 @@ export default function CompareClient() {
           <select
             value={leftId}
             onChange={(e) => setLeftId(e.target.value)}
-            className="mt-1 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm outline-none focus:border-primary-400"
+            className="mt-1 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm outline-none focus:border-accent-400"
           >
             {MODELS.map((m) => (
               <option key={m.id} value={m.id}>{m.name}</option>
@@ -41,7 +41,7 @@ export default function CompareClient() {
           <select
             value={rightId}
             onChange={(e) => setRightId(e.target.value)}
-            className="mt-1 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm outline-none focus:border-primary-400"
+            className="mt-1 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm outline-none focus:border-accent-400"
           >
             {MODELS.map((m) => (
               <option key={m.id} value={m.id}>{m.name}</option>
@@ -71,14 +71,14 @@ export default function CompareClient() {
                 <td className="py-3 pr-4 capitalize text-muted-foreground">{dim}</td>
                 <td className="py-3 pr-4">
                   {dim === 'audio' ? (
-                    left.audio ? <span className="text-green-600 dark:text-green-400">Yes</span> : <span className="text-muted-foreground">No</span>
+                    left.audio ? <span className="text-emerald-600 dark:text-emerald-400">Yes</span> : <span className="text-muted-foreground">No</span>
                   ) : (
                     String(left[dim])
                   )}
                 </td>
                 <td className="py-3">
                   {dim === 'audio' ? (
-                    right.audio ? <span className="text-green-600 dark:text-green-400">Yes</span> : <span className="text-muted-foreground">No</span>
+                    right.audio ? <span className="text-emerald-600 dark:text-emerald-400">Yes</span> : <span className="text-muted-foreground">No</span>
                   ) : (
                     String(right[dim])
                   )}

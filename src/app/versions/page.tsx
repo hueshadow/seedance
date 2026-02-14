@@ -70,12 +70,12 @@ export default function VersionsPage() {
               {SEEDANCE_VERSIONS.map((v) => (
                 <tr
                   key={v.id}
-                  className={`border-b border-border ${v.latest ? 'bg-primary-50/50 dark:bg-primary-900/10' : ''}`}
+                  className={`border-b border-border ${v.latest ? 'bg-accent-50/50 dark:bg-accent-900/10' : ''}`}
                 >
                   <td className="py-3.5 pr-4 font-medium">
                     {v.name}
                     {v.latest && (
-                      <span className="ml-2 rounded bg-primary-100 px-1.5 py-0.5 text-xs font-medium text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+                      <span className="ml-2 rounded bg-accent-100 px-1.5 py-0.5 text-xs font-medium text-accent-700 dark:bg-accent-900/40 dark:text-accent-300">
                         Latest
                       </span>
                     )}
@@ -85,7 +85,7 @@ export default function VersionsPage() {
                   <td className="py-3.5 pr-4">{v.speed}</td>
                   <td className="py-3.5 pr-4">
                     {v.audio ? (
-                      <span className="text-green-600 dark:text-green-400">Yes</span>
+                      <span className="text-emerald-600 dark:text-emerald-400">Yes</span>
                     ) : (
                       <span className="text-muted-foreground">No</span>
                     )}
@@ -112,7 +112,7 @@ export default function VersionsPage() {
                 key={v.id}
                 className={`rounded-xl border p-5 ${
                   v.latest
-                    ? 'border-primary-300 bg-primary-50/30 dark:border-primary-700 dark:bg-primary-900/10'
+                    ? 'border-accent-300 bg-accent-50/30 dark:border-accent-700 dark:bg-accent-900/10'
                     : 'border-border bg-card'
                 }`}
               >
@@ -164,7 +164,7 @@ export default function VersionsPage() {
                 <div className="flex flex-col items-center">
                   <div
                     className={`h-3 w-3 rounded-full ${
-                      v.latest ? 'bg-primary-600' : 'bg-muted-foreground/40'
+                      v.latest ? 'bg-accent-600' : 'bg-muted-foreground/40'
                     }`}
                   />
                   {i < SEEDANCE_VERSIONS.length - 1 && (

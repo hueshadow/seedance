@@ -17,19 +17,19 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-lg font-semibold tracking-tight">
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-lg">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
+        <Link href="/" className="font-display text-lg font-bold tracking-tight">
           {SITE_NAME}
         </Link>
 
-        <div className="flex items-center gap-4">
-          <ul className="hidden items-center gap-6 text-sm md:flex">
+        <div className="flex items-center gap-3">
+          <ul className="hidden items-center gap-1 text-sm md:flex">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  className="rounded-md px-3 py-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 >
                   {item.label}
                 </Link>
@@ -39,7 +39,7 @@ export function Header() {
 
           <Link
             href="/guide"
-            className="hidden rounded-md bg-primary-600 px-3.5 py-1.5 text-sm font-medium text-white transition-colors hover:bg-primary-700 md:inline-block"
+            className="hidden rounded-lg bg-accent-600 px-4 py-1.5 text-sm font-medium text-white transition-all hover:bg-accent-700 hover:shadow-md hover:shadow-accent-600/20 md:inline-block"
           >
             Get Started
           </Link>
@@ -47,7 +47,7 @@ export function Header() {
           {mounted && (
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="rounded-md p-2 text-muted-foreground transition-colors hover:text-foreground"
+              className="rounded-md p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
@@ -60,7 +60,7 @@ export function Header() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="rounded-md p-2 text-muted-foreground transition-colors hover:text-foreground md:hidden"
+            className="rounded-md p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
             aria-label="Toggle menu"
           >
             {mobileOpen ? (
@@ -73,24 +73,24 @@ export function Header() {
       </nav>
 
       {mobileOpen && (
-        <div className="border-t border-border px-6 py-4 md:hidden">
-          <ul className="space-y-3">
+        <div className="animate-fade-in border-t border-border/60 px-6 py-4 md:hidden">
+          <ul className="space-y-1">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className="block rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
-            <li>
+            <li className="pt-2">
               <Link
                 href="/guide"
                 onClick={() => setMobileOpen(false)}
-                className="inline-block rounded-md bg-primary-600 px-3.5 py-1.5 text-sm font-medium text-white transition-colors hover:bg-primary-700"
+                className="inline-block rounded-lg bg-accent-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-700"
               >
                 Get Started
               </Link>

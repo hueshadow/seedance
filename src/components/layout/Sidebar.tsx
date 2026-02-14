@@ -53,7 +53,7 @@ export function Sidebar({ headings = [], relatedArticles = [] }: SidebarProps) {
                     href={`#${h.id}`}
                     className={`block py-0.5 transition-colors ${
                       activeId === h.id
-                        ? 'font-medium text-primary-600'
+                        ? 'font-medium text-accent-600'
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
