@@ -7,6 +7,7 @@
   <url><loc>https://seedance.free/api</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seedance.free/register</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seedance.free/faq</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seedance.free/about</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://seedance.free/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seedance.free/tools/prompt-builder</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://seedance.free/tools/calculator</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
