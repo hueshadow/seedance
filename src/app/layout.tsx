@@ -18,11 +18,23 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     template: `%s | ${SITE_NAME}`,
     default: `Seedance AI Video Generator - Free Guide, Tools & API | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     siteName: SITE_NAME,
     url: SITE_URL,

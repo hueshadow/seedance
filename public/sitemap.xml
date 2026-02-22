@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://seedance.free/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://seedance.free/guide</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://seedance.free/versions</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://seedance.free/pricing</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://seedance.free/api</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://seedance.free/register</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://seedance.free/faq</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://seedance.free/about</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://seedance.free/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://seedance.free/tools/prompt-builder</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://seedance.free/tools/calculator</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://seedance.free/tools/compare</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://seedance.free/blog/seedance-vs-sora</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://seedance.free/blog/seedance-outside-china</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://seedance.free/blog/seedance-vs-veo3</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://seedance.free/blog/best-seedance-prompts-ecommerce</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://seedance.free/blog/seedance-api-tutorial</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://seedance.free/</loc><lastmod>2026-02-22</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://seedance.free/guide</loc><lastmod>2026-02-22</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://seedance.free/versions</loc><lastmod>2026-02-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seedance.free/pricing</loc><lastmod>2026-02-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seedance.free/api</loc><lastmod>2026-02-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seedance.free/register</loc><lastmod>2026-02-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seedance.free/faq</loc><lastmod>2026-02-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seedance.free/about</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://seedance.free/blog</loc><lastmod>2026-02-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seedance.free/tools/prompt-builder</loc><lastmod>2026-02-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seedance.free/tools/calculator</loc><lastmod>2026-02-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seedance.free/tools/compare</loc><lastmod>2026-02-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://seedance.free/blog/seedance-vs-sora</loc><lastmod>2026-02-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://seedance.free/blog/seedance-outside-china</loc><lastmod>2026-02-18</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://seedance.free/blog/seedance-vs-veo3</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://seedance.free/blog/best-seedance-prompts-ecommerce</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://seedance.free/blog/seedance-api-tutorial</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
